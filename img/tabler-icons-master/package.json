@@ -1,0 +1,61 @@
+{
+  "name": "tabler-icons",
+  "version": "1.10.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabler/tabler-icons.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tabler/tabler-icons/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/codecalm"
+  },
+  "files": [
+    "icons/*",
+    "icons-png/*",
+    "iconfont/*",
+    "tags.json",
+    "tabler-sprite.svg",
+    "tabler-sprite-nostroke.svg"
+  ],
+  "homepage": "https://github.com/tabler/tabler-icons#readme",
+  "scripts": {
+    "start": "bundle exec jekyll serve --watch --livereload",
+    "optimize": "gulp optimize",
+    "release": "release-it"
+  },
+  "description": "",
+  "devDependencies": {
+    "lodash.template": "4.5.0",
+    "node-sass": "4.13.1",
+    "clean-css": "4.2.3",
+    "glob": "7.1.6",
+    "gulp": "4.0.2",
+    "gulp-iconfont": "10.0.3",
+    "gulp-zip": "5.0.1",
+    "minimist": "1.2.5",
+    "puppeteer": "2.1.1",
+    "release-it": "13.1.2",
+    "svg-outline-stroke": "1.2.4"
+  },
+  "release-it": {
+    "hooks": {
+      "after:bump": "gulp build --latest-version ${latestVersion} --new-version ${version} --verbose",
+      "after:release": "echo Successfully released ${name} v${latestVersion} to ${repo.repository}."
+    },
+    "git": {
+      "addUntrackedFiles": true,
+      "changelog": "gulp changelog --silent --latest-tag ${latestTag}",
+      "tagName": "v${version}",
+      "requireBranch": "master",
+      "requireCommits": true
+    },
+    "github": {
+      "release": true
+    }
+  }
+}

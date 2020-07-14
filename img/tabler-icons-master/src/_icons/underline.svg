@@ -1,0 +1,7 @@
+---
+tags: [underscore, emphasis, horizontal, typography]
+---
+<svg>
+  <line x1="6" y1="20" x2="18" y2="20" />
+  <path d="M8 5v6a4 4 0 0 0 8 0v-6" />
+</svg>
